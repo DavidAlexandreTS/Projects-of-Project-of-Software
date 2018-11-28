@@ -293,6 +293,44 @@ public class Homepage
 			}else if(choice.equals("4"))
 			{
 				
+				System.out.println("Hey, gimme your Login, Username and Password");
+				username = adc.nextLine();
+				login = adc.nextLine();
+				password = adc.nextLine();
+				String destiny, mes;
+				int idagain = 1;
+				System.out.println("To whom you want to send a message?");
+				destiny = adc.nextLine();
+				
+				for(int i = 0; i < acount.size(); i ++)
+				{
+				    if(acount.get(i).getUsername().equals(destiny))
+				    {
+				    	idagain = acount.get(i).getIdacc();
+				    }
+				}
+
+				if(idagain == 0)
+				{
+					System.out.println("Cant find the User");
+				}else
+				{
+					System.out.println("Enter your message:");
+					mes = adc.nextLine();
+					acount.get(idagain).Sending(username, destiny, mes);
+					acount.get(idagain).Checking(username);
+					
+					int idnovamente = 1;
+					for(int i = 0; i < acount.size(); i ++)
+					{
+					    if(acount.get(i).getLogin().equals(login))
+					    {
+					    	idnovamente = acount.get(i).getIdacc();
+					    }
+					}
+					acount.get(idnovamente - 1).Sending(username, destiny, mes);
+					System.out.println("Sent With Sucess!");
+				}
 			}else if(choice.equals("7"))
 			{
 				System.out.println("To See informations about your Profile, you must enter the Login and Password...");
@@ -317,6 +355,10 @@ public class Homepage
 				System.out.println("Birthday - " + aux);
 				System.out.println("Biography - " + aux1);
 				System.out.println("Addres - " + aux2);
+				
+			}else if(choice.equals("8"))
+			{
+				//
 			}
 		}
 		

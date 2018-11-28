@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Account
 {
 	ArrayList<String> Friends = new ArrayList<String>();
-	ArrayList<String> Messages = new ArrayList<String>();
+	ArrayList<Messages> Messagese = new ArrayList<Messages>();
+	private ArrayList<String> tomorenames = new ArrayList<String>();
 	ArrayList<String> Friendship_Request = new ArrayList<String>();
 	
 	@SuppressWarnings("unused")
@@ -40,6 +41,16 @@ public class Account
 	{
 		this.Friends.add(friend);
 	}
+	
+	public void Sending(String username, String destiny, String mes)
+	{
+		Messages mn = new Messages();
+		mn.setSen(username);
+		mn.setRece(destiny);
+		mn.setMsg(mes);
+		this.Messagese.add(mn);
+	}
+	
 	
 	public void setIdacc(int idacc)
 	{
@@ -84,15 +95,22 @@ public class Account
 		return Solicitacions;
 	}
 	
-	public void removeFriend(String friend)
+	public void Checking(String andusername)
 	{
-		if(Friends.contains(friend))
+		if(!(this.tomorenames.contains(andusername)))
 		{
-			this.Friends.remove(friend);
-		}else
-		{
-			System.out.println("Error! Friend dont found.");
+			this.tomorenames.add(andusername);
 		}
+	}
+	
+	public ArrayList<String> getTomorenames()
+	{
+		return tomorenames;
+	}
+	
+	public ArrayList<Messages> getMyMessages()
+	{
+		return Messagese;
 	}
 
 }
