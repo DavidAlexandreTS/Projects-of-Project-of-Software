@@ -224,7 +224,7 @@ public class Homepage
 					    {
 					    	local = 1;
 					    	idprofile = acount.get(i).getIdacc();
-					    	System.out.println("Se liga no idprofile: "+ idprofile );
+					    	//System.out.println("Se liga no idprofile: "+ idprofile );
 					    }
 					}
 					
@@ -294,7 +294,7 @@ public class Homepage
 			}else if(choice.equals("4"))
 			{
 				
-				System.out.println("Hey, gimme your Login, Username and Password");
+				System.out.println("Hey, gimme your Username, Login and Password");
 				username = adc.nextLine();
 				login = adc.nextLine();
 				password = adc.nextLine();
@@ -334,7 +334,7 @@ public class Homepage
 				}
 			}else if(choice.equals("5"))
 			{
-				System.out.println("Hey, gimme your Login, Username and Password");
+				System.out.println("Hey, gimme your Username,  Login and Password");
 				username = adc.nextLine();
 				login = adc.nextLine();
 				password = adc.nextLine();
@@ -344,6 +344,33 @@ public class Homepage
 				descrip = adc.nextLine();
 				Create_Communitty.AddCommunity(Comum, username, namecom, descrip, idcom);
 				idcom ++;
+			}else if(choice.equals("6"))
+			{
+				System.out.println("To add a member, plz entry Username, Login and Password");
+				int fag = 0;
+				username = adc.nextLine();
+				login = adc.nextLine();
+				password = adc.nextLine();
+				
+				for(int i = 0; i < Comum.size(); i ++)
+				{
+				    if(Comum.get(i).getAdmin().equals(username))
+				    {
+				    	fag = 1;
+				    	break;
+				    }
+				}
+				
+				if(fag == 1)
+				{
+					String pipow;
+					System.out.println("Plz digit the Username of the guy you want add");
+					pipow = adc.nextLine();
+					AddMembers(pipow);
+				}else
+			    {
+			    	System.out.println("You are not a Admin, so you cant add Members.");
+			    }
 			}else if(choice.equals("7"))
 			{
 				System.out.println("To See informations about your Profile, you must enter the Login and Password...");
@@ -377,6 +404,11 @@ public class Homepage
 				break;
 			}
 		}
+		
+	}
+
+	private static void AddMembers(String pipow) {
+		// TODO Auto-generated method stub
 		
 	}
 }

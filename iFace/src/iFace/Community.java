@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Community
 {
-    private String admin, name, description;
+    private String admin, name, description, memb, usernamee;
     private int idcom;
     private ArrayList<Integer> Membersnum = new ArrayList<>();
     private ArrayList<String> Chat = new ArrayList<>();
@@ -47,6 +47,11 @@ public class Community
     public String getAdmin()
     {
     	return admin;
+    }
+    
+    public void AddMembers(String usernamee)
+    {
+    	this.memb = usernamee;
     }
     
     public ArrayList<Integer> getMembers()
