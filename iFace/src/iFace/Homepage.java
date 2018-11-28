@@ -203,38 +203,93 @@ public class Homepage
 				}
 			}else if(choice.equals("3"))
 			{
-				System.out.println("To proceed enter Login and Password...");
+				System.out.println("To proceed enter your Username, Login and Password...");
+				username = adc.nextLine();
 				login = adc.nextLine();
 				password = adc.nextLine();
-				System.out.println("Enter the name of the Friend you want Add");
-				String nameoffriend;
-				int local = 0;
-				nameoffriend = adc.nextLine();
+				System.out.println("To Invite an Friend entry 1, to Check if you have Friendships Requests entry 2");
+				String opt = adc.nextLine();
 				
-				for(int i = 0; i < acount.size(); i ++)
+				if(opt.equals("1"))
 				{
-				    if(acount.get(i).getUsername().equals(nameoffriend))
-				    {
-				    	local = 1;
-				    	idprofile = acount.get(i).getIdacc();
-				    	
-				    }
-				}
-				
-				if(local == 1)
-				{
-					if(acount.get(idprofile).getFriends().contains(nameoffriend))
+					System.out.println("Enter the Username of the Friend you want Add");
+					String nameoffriend;
+					int local = 0;
+					nameoffriend = adc.nextLine();
+					
+					for(int i = 0; i < acount.size(); i ++)
 					{
-						System.out.println("He is your friend");
+					    if(acount.get(i).getUsername().equals(nameoffriend))
+					    {
+					    	local = 1;
+					    	idprofile = acount.get(i).getIdacc();
+					    	System.out.println("Se liga no idprofile: "+ idprofile );
+					    }
+					}
+					
+					if(local == 1)
+					{
+						if(acount.get(idprofile - 1).getFriends().contains(nameoffriend))
+						{
+							System.out.println("He is your friend");
+						}else
+						{
+							acount.get(idprofile - 1).Requests(username, acount.get(idprofile - 1).getUsername());
+							System.out.println("Request sent to " + nameoffriend);
+						}
 					}else
 					{
-						acount.get(idprofile).Requests(username, acount.get(idprofile - 1).getUsername());
-						System.out.println("Request sent to " + nameoffriend);
+						System.out.println("User not found.");
 					}
-				}else
+				}else if(opt.equals("2"))
 				{
-					System.out.println("Friend not found.");
+					//System.out.println("To entrando aqui s");
+					String soli;
+					@SuppressWarnings("null")
+					int idtotal = 1, auxin;
+					
+					for(int i = 0; i < acount.size(); i ++)
+					{
+					    if(acount.get(i).getLogin().equals(login))
+					    {
+					    	if(acount.get(i).getPassword().equals(password))
+					    	{
+					    		 idtotal = acount.get(i).getIdacc();
+					    	}
+					    }
+					}
+					
+					if(acount.get(idtotal - 1).getRequests().size() != 0)
+					{
+						String answer;
+						auxin = acount.get(idtotal - 1).getRequests().size();
+						int i = 0;
+						while(i < auxin)
+						{
+							System.out.println("The User " + acount.get(idtotal - 1).getRequests().get(i).getSent() + " want add you has a friend. Digite Yes to aceppt and No to decline.");
+							answer = adc.nextLine();
+							
+							if(answer.equals("Yes"))
+							{
+								//System.out.println("The problem is: " + idtotal);
+								int idaux = 1;
+								/*for(int j = 0; j < acount.size(); j ++)
+								{
+									//System.out.println("The problem is: " + idtotal);
+								    if(acount.get(j).getUsername().equals(acount.get(idtotal - 1).getRequests().get(j).getSent()))
+								    {
+								    	idaux = acount.get(j).getIdacc();
+								    }
+								}*/
+								acount.get(idtotal - 1).setFriends(acount.get(idaux - 1).getUsername());
+								acount.get(idaux - 1).setFriends(username);
+								System.out.println(acount.get(idaux - 1).getUsername() + " adicionado\n");
+							}
+							i ++;
+						}
+					}
 				}
+				
 			}else if(choice.equals("4"))
 			{
 				
