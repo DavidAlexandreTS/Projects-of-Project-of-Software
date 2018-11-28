@@ -10,10 +10,11 @@ public class Homepage
 	{
 		ArrayList<Account> acount = new ArrayList<Account>();
 		ArrayList<Profile> profile = new ArrayList<Profile>();
+		ArrayList<Community> Comum = new ArrayList<Community>();
 		Scanner adc = new Scanner(System.in);
 		System.out.println("Welcome to IFACE");
-		int idacc = 1, idprofile = 1;
-		String username, login, password, birthday, bio, addres, choice;
+		int idacc = 1, idprofile = 1, idcom = 1;
+		String username, login, password, birthday, bio, addres, choice, namecom, descrip;
 		while(true)
 		{
 			System.out.println("What do you want to do?\n" + 
@@ -331,6 +332,18 @@ public class Homepage
 					acount.get(idnovamente - 1).Sending(username, destiny, mes);
 					System.out.println("Sent With Sucess!");
 				}
+			}else if(choice.equals("5"))
+			{
+				System.out.println("Hey, gimme your Login, Username and Password");
+				username = adc.nextLine();
+				login = adc.nextLine();
+				password = adc.nextLine();
+				
+				System.out.println("Enter the name and the description to your Community");
+				namecom = adc.nextLine();
+				descrip = adc.nextLine();
+				Create_Communitty.AddCommunity(Comum, username, namecom, descrip, idcom);
+				idcom ++;
 			}else if(choice.equals("7"))
 			{
 				System.out.println("To See informations about your Profile, you must enter the Login and Password...");
@@ -359,6 +372,9 @@ public class Homepage
 			}else if(choice.equals("8"))
 			{
 				//
+			}else if(choice.equals("0"))
+			{
+				break;
 			}
 		}
 		
