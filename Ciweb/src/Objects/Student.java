@@ -1,10 +1,11 @@
-package System;
+package Objects;
 
 public class Student
 {
 	private String name;
 	private String type;
 	private String advisor;
+	private int ids;
 	
 	public void setName(String name)
 	{
@@ -34,5 +35,15 @@ public class Student
 	public String getAdvisor()
 	{
 		return advisor;
+	}
+	
+	public void setId(int ids)
+	{
+		this.ids = ids;
+	}
+	
+	public int getId()
+	{
+		return ids;
 	}
 }
