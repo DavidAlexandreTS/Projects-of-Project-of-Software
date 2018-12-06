@@ -1,10 +1,13 @@
 package Objects;
 
-public class Student
+public class Collaborator
 {
 	private String name;
 	private String type;
 	private String advisor;
+	private String guiding;
+	private String protitle;
+
 	private int ids;
 	
 	public void setName(String name)
@@ -37,6 +40,26 @@ public class Student
 		return advisor;
 	}
 	
+	public void setGuiding(String guiding)
+	{
+		this.guiding = guiding;
+	}
+	
+	public String getGuiding()
+	{
+		return guiding;
+	}
+	
+	public void setProtitle(String protitle)
+	{
+		this.protitle = protitle;
+	}
+	
+	public String getProtitle()
+	{
+		return protitle;
+	}
+
 	public void setId(int ids)
 	{
 		this.ids = ids;

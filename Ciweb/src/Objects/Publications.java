@@ -6,10 +6,21 @@ public class Publications
 {
 	ArrayList<Projects> Messagese = new ArrayList<Projects>();
 	
+	private String projectasso;
 	private String title_P;
 	private String nameofconference;
 	private String yearofpublication;
 	
+	public void setProjectasso(String projectasso)
+	{
+		this.projectasso = projectasso;
+	}
+	
+	public String getProjectasso()
+	{
+		return projectasso;
+	}
+
 	public void setTitle_P(String title_P)
 	{
 		this.title_P = title_P;

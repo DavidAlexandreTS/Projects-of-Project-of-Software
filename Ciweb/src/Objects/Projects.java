@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class Projects
 {
-	ArrayList<Publications> Messagese = new ArrayList<Publications>();
-	ArrayList<Student> stud = new ArrayList<Student>();
-	ArrayList<Teacher> teach = new ArrayList<Teacher>();
 	
+	ArrayList<Publications> Messagese = new ArrayList<Publications>();
+	ArrayList<Collaborator> stud = new ArrayList<Collaborator>();
+	
+	private String col_name;
 	private String title;
 	private String startday;
 	private String enddate;
@@ -17,24 +18,46 @@ public class Projects
 	private String description;
 	private String status;
 	
-	public void setStud(ArrayList<Student> stud)
+	private int idp, numberofpub;
+
+	public void setNumberofpub(int numberofpub)
+	{
+		this.numberofpub = numberofpub;
+	}
+	
+	public int getNumberofpub()
+	{
+		return numberofpub;
+	}
+	
+	public void setIdp(int idp)
+	{
+		this.idp = idp;
+	}
+	
+	public int getIdp()
+	{
+		return idp;
+	}
+
+	public void setStud(ArrayList<Collaborator> stud)
 	{
 		this.stud = stud;
 	}
 	
-	public ArrayList<Student> getStud()
+	public ArrayList<Collaborator> getStud()
 	{
 		return stud;
 	}
 	
-	public void setTeach(ArrayList<Teacher> teach)
+	public void setColname(String col_name)
 	{
-		this.teach = teach;
+		this.col_name = col_name;
 	}
 	
-	public ArrayList<Teacher> getTeach()
+	public String getColname()
 	{
-		return teach;
+		return col_name;
 	}
 	
 	public void setTitle(String title)
