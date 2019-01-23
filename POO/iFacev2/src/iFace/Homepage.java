@@ -530,6 +530,29 @@ public class Homepage
 					else if(choice.equals("2"))
 					{
 						System.out.println("To add members to the community you must be the administrator of the community");
+						System.out.println("Let's check this out. Enter the name of your community.");
+						name_com = adc.nextLine();
+						int community_index = 0;
+						
+						auxe = 0;
+						for (int i = 0; i < community.size(); i ++)
+						{
+							if (community.get(i).getName_com().equals(name_com) && community.get(i).getUnserna().equals(userna))
+							{
+								auxe = 1;
+								community_index = i;
+								break;
+							}
+						}
+						
+						if(auxe == 1)
+						{
+							System.out.println("Beauty, now enter the username of the user you want to add to your community");
+						}
+						else
+						{
+							System.out.println("Sorry, we could not find the community or you are not an administrator of the community");
+						}
 						
 					}
 					else
