@@ -22,4 +22,4 @@
     
   * Interface
    
-    Initially several interesting questions arose in my mind regarding the use of interface in this project. But then I thought hard and saw that it was not necessary. I thought about using it to authenticate a community administrator, but the advantages turned out to be minor and so I decided to simplify it more. Anyway, I chose not to use an interface, because I think it is unnecessary in relation to this Software.
+   Initially several interesting questions arose in my mind regarding the use of interface in this project. But then I thought hard and saw that it was not necessary. I thought about using it to authenticate a community administrator, but the advantages turned out to be minor and so I decided to simplify it more. Anyway, I chose not to use an interface, because I think it is unnecessary in relation to this Software.
