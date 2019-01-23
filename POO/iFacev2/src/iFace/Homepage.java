@@ -23,7 +23,7 @@ public class Homepage
 		String message;
 		String name_com;
 		String des_com;
-		String userna = null;
+		String adm = null;
 		
 		
 		int idc = 0;
@@ -49,8 +49,7 @@ public class Homepage
 		{
 			System.out.println("What do you want to do?\n" + "1. To Create a Account\n"
 					+ "2. To Edit or Create an Profile\n" + "3. To Add an Friend\n" + "4. To view informations about Messages\n"
-					+ "5. To Create an Community\n" + "6. To Add members to an Community\n"
-					+ "7. View Profile Information\n" + "8. To Delete an Account\n" + "0. To Close the iFace" + "\n");
+					+ "5. To Create an Community or Add members to an Community\n" + "6. View Profile Information\n" + "7. To Delete an Account\n" + "0. To Close the iFace" + "\n");
 			
 			choice = adc.nextLine();
 			
@@ -147,15 +146,11 @@ public class Homepage
 										System.out.println("You entered the wrong month or year of birth, try again...");
 									}
 									else
-									{
-										//System.out.printf("Your Birthday is: %02d/%02d/%d\n", day_of_birthday, month_of_birthday, year_of_birthday);
-										
+									{	
 										System.out.println("Now give us your address and a short description of who you are");
 										addres = adc.nextLine();
 										bio = adc.nextLine();
 										user = login;
-										//System.out.println(addres);
-										//System.out.println(bio);
 										Create_Profile.CreateProfile(profile, idprofile, 0, day_of_birthday, month_of_birthday, year_of_birthday, addres, bio, user);
 										System.out.println("New Profile successfully registered!");
 										break;
@@ -506,7 +501,7 @@ public class Homepage
 						if (acount.get(i).getPassword().equals(password))
 						{
 							auxe = 1;
-							userna = acount.get(i).getUsername();
+							adm = acount.get(i).getUsername();
 							break;
 						}
 					}
@@ -523,7 +518,7 @@ public class Homepage
 						name_com = adc.nextLine();
 						des_com = adc.nextLine();
 						
-						Community.Add_Members(community, members, userna, name_com, des_com);
+						Community.Add_Members(community, members, adm, name_com, des_com);
 						System.out.println("New Community created with success!");
 						members = 1;
 					}
@@ -537,7 +532,7 @@ public class Homepage
 						auxe = 0;
 						for (int i = 0; i < community.size(); i ++)
 						{
-							if (community.get(i).getName_com().equals(name_com) && community.get(i).getUnserna().equals(userna))
+							if (community.get(i).getName_com().equals(name_com) && community.get(i).getAdm().equals(adm))
 							{
 								auxe = 1;
 								community_index = i;
@@ -548,6 +543,28 @@ public class Homepage
 						if(auxe == 1)
 						{
 							System.out.println("Beauty, now enter the username of the user you want to add to your community");
+							username = adc.nextLine();
+							
+							auxe = 0;
+							for (int i = 0; i < acount.size(); i ++)
+							{
+								if (acount.get(i).getUsername().equals(username))
+								{
+									auxe = 1;
+									break;
+								}
+							}
+							
+							if(auxe == 1)
+							{
+								community.get(community_index).setMembers(+ 1);
+								System.out.println("New member successfully added!");
+							}
+							else
+							{
+								System.out.println("Sorry, user not found. Please try again.");
+							}
+							
 						}
 						else
 						{
@@ -562,11 +579,11 @@ public class Homepage
 				}
 				else
 				{
-					//nah, error
+					System.out.println("");
 				}
 			}
 			
-			else if(choice.equals("7"))
+			else if(choice.equals("6"))
 			{
 				System.out.println("To See informations about your Profile, you must enter the Login and Password...");
 				login = adc.nextLine();
@@ -597,6 +614,38 @@ public class Homepage
 				System.out.println("Your Address: " + addresinfo);
 				System.out.println("Number of Friends: " + numb);
 				System.out.println("\n");
+			}
+			
+			else if(choice.equals("7"))
+			{
+				System.out.println("To continue give me your login and password");
+				login = adc.nextLine();
+				password = adc.nextLine();
+				
+				int auxe = 0, auxfinal = 0;
+				for (int i = 0; i < acount.size(); i ++)
+				{
+					if (acount.get(i).getLogin().equals(login))
+					{
+						if (acount.get(i).getPassword().equals(password))
+						{
+							auxe = 1;
+							auxfinal = i;
+							adm = acount.get(i).getUsername();
+							break;
+						}
+					}
+				}
+				
+				if(auxe == 1)
+				{
+					acount.remove(auxfinal).equals(adm);
+					System.out.println("Account Remove with sucess!"); 		
+				}
+				else
+				{
+					System.out.println("Invalid Login or Password try again later");
+				}
 			}
 		}
 

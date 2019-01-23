@@ -8,7 +8,7 @@ public class Community
 	
 	String name_com;
 	String description_com;
-	String unserna;
+	String adm;
 	
 	public int getMembers()
 	{
@@ -40,21 +40,21 @@ public class Community
 		this.description_com = description_com;
 	}
 	
-	public String getUnserna()
+	public String getAdm()
 	{
-		return unserna;
+		return adm;
 	}
 
-	public void setUnserna(String unserna)
+	public void setAdm(String adm)
 	{
-		this.unserna = unserna;
+		this.adm = adm;
 	}
 
-	public static void Add_Members(ArrayList<Community> communitys, int members, String userna, String name_com, String description_com)
+	public static void Add_Members(ArrayList<Community> communitys, int members, String adm, String name_com, String description_com)
 	{
 		Community comum = new Community();
 		comum.setMembers(members);
-		comum.setUnserna(userna);
+		comum.setAdm(adm);
 		comum.setName_com(name_com);
 		comum.setDescription_com(description_com);
 		communitys.add(comum);
