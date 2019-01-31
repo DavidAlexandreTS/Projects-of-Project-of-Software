@@ -71,7 +71,7 @@ public class Home
 				{
 					System.out.println("Welcome Ms. Admin");
 					System.out.println( "What do you want to do?\n" + "1. To add employees or an Partner\n" + "2. To change a partner payment status or update the value of the contribution\n" +
-					"3. To administer\n");
+					"3. To administer the Resources\n" + "4. To Generate Reports");
 					choice = input.nextLine();
 					
 					if(choice.equals("1"))
@@ -426,6 +426,269 @@ public class Home
 								System.out.println("Invalid Option.");
 							}
 							
+						}
+					}
+					
+					else if(choice.equals("4"))
+					{
+						System.out.println("Choose one option to continue:\n" + "1. To view informations about the Team or General Services\n" +
+						"2. To view informations about Physical Resources\n" + "3. To view informations about the Partnes");
+						choice = input.nextLine();
+						
+						if(choice.equals("1"))
+						{
+							System.out.println("You want to see information from the team[1] or other employees[2]");
+							choice = input.nextLine();
+							
+							if(choice.equals("1"))
+							{
+								System.out.println("Here is the information about the team: ");
+								
+								System.out.println("Technician");
+								for(int i = 0; i < technicians.size(); i ++)
+								{
+									name = technicians.get(i).getName();
+									email = technicians.get(i).getEmail();
+									cpf = technicians.get(i).getCpf();
+									telephone = technicians.get(i).getTelephone();
+									salary = technicians.get(i).getSalary();
+									
+									System.out.println("Name: " + name);
+									System.out.println("Email: " + email);
+									System.out.println("CPF: " + cpf);
+									System.out.println("Telephone: " + telephone);
+									System.out.println("Salary: " + salary + "R$");
+											
+								}
+								
+								System.out.println("");
+								System.out.println("Players");
+								for(int i = 0; i < players.size(); i ++)
+								{
+									name = players.get(i).getName();
+									type_of_player = players.get(i).getType_of_player();
+									email = players.get(i).getEmail();
+									status = players.get(i).getStatus();
+									cpf = players.get(i).getCpf();
+									telephone = players.get(i).getTelephone();
+									salary = players.get(i).getSalary();
+									
+									System.out.println("Name: " + name);
+									System.out.println("Type: " + type_of_player);
+									System.out.println("Email: " + email);
+									System.out.println("CPF: " + cpf);
+									System.out.println("Telephone: " + telephone);
+									System.out.println("Salary: " + salary + "R$");
+									System.out.println("Status: " + status);
+											
+								}
+								
+								System.out.println("");
+								System.out.println("Physical Trainers");
+								for(int i = 0; i < physical_trainers.size(); i ++)
+								{
+									name = physical_trainers.get(i).getName();
+									email = physical_trainers.get(i).getEmail();
+									cpf = physical_trainers.get(i).getCpf();
+									telephone = physical_trainers.get(i).getTelephone();
+									salary = physical_trainers.get(i).getSalary();
+									
+									System.out.println("Name: " + name);
+									System.out.println("Email: " + email);
+									System.out.println("CPF: " + cpf);
+									System.out.println("Telephone: " + telephone);
+									System.out.println("Salary: " + salary + "R$");
+											
+								}
+								
+							}
+							
+							else if(choice.equals("2"))
+							{
+								System.out.println("Here is the information about the Workers: ");
+								
+								System.out.println("Presidents");
+								for(int i = 0; i < presidents.size(); i ++)
+								{
+									name = presidents.get(i).getName();
+									email = presidents.get(i).getEmail();
+									cpf = presidents.get(i).getCpf();
+									telephone = presidents.get(i).getTelephone();
+									salary = presidents.get(i).getSalary();
+									
+									System.out.println("Name: " + name);
+									System.out.println("Email: " + email);
+									System.out.println("CPF: " + cpf);
+									System.out.println("Telephone: " + telephone);
+									System.out.println("Salary: " + salary + "R$");
+											
+								}
+								
+								System.out.println("");
+								System.out.println("Medicals");
+								for(int i = 0; i < medicals.size(); i ++)
+								{
+									name = medicals.get(i).getName();
+									email = medicals.get(i).getEmail();
+									cpf = medicals.get(i).getCpf();
+									crm = medicals.get(i).getCrm();
+									telephone = medicals.get(i).getTelephone();
+									salary = medicals.get(i).getSalary();
+									
+									System.out.println("Name: " + name);
+									System.out.println("Email: " + email);
+									System.out.println("CPF: " + cpf);
+									System.out.println("CRM: " + crm);
+									System.out.println("Telephone: " + telephone);
+									System.out.println("Salary: " + salary + "R$");
+											
+								}
+								
+								System.out.println("");
+								System.out.println("Drivers");
+								for(int i = 0; i < drivers.size(); i ++)
+								{
+									name = drivers.get(i).getName();
+									email = drivers.get(i).getEmail();
+									cpf = drivers.get(i).getCpf();
+									enrollment_number = drivers.get(i).getEnrollment_number();
+									telephone = drivers.get(i).getTelephone();
+									salary = drivers.get(i).getSalary();
+									
+									System.out.println("Name: " + name);
+									System.out.println("Email: " + email);
+									System.out.println("CPF: " + cpf);
+									System.out.println("Enrollment Number: " + enrollment_number);
+									System.out.println("Telephone: " + telephone);
+									System.out.println("Salary: " + salary + "R$");
+											
+								}
+								
+								System.out.println("");
+								System.out.println("Cooks");
+								for(int i = 0; i < cooks.size(); i ++)
+								{
+									name = cooks.get(i).getName();
+									email = cooks.get(i).getEmail();
+									cpf = cooks.get(i).getCpf();
+									telephone = cooks.get(i).getTelephone();
+									salary = cooks.get(i).getSalary();
+									
+									System.out.println("Name: " + name);
+									System.out.println("Email: " + email);
+									System.out.println("CPF: " + cpf);
+									System.out.println("Telephone: " + telephone);
+									System.out.println("Salary: " + salary + "R$");
+											
+								}
+								
+								System.out.println("");
+								System.out.println("Lawyers");
+								for(int i = 0; i < lawyers.size(); i ++)
+								{
+									name = lawyers.get(i).getName();
+									email = lawyers.get(i).getEmail();
+									cpf = lawyers.get(i).getCpf();
+									telephone = lawyers.get(i).getTelephone();
+									salary = lawyers.get(i).getSalary();
+									
+									System.out.println("Name: " + name);
+									System.out.println("Email: " + email);
+									System.out.println("CPF: " + cpf);
+									System.out.println("Telephone: " + telephone);
+									System.out.println("Salary: " + salary + "R$");
+											
+								}
+								
+							}
+							
+							else
+							{
+								System.out.println("Invalid Option!");
+							}
+						}
+						
+						else if(choice.equals("2"))
+						{
+							System.out.println("Here is the Physics Resources");
+							
+							System.out.println("The Bus");
+							for(int i = 0; i < resources.size(); i ++)
+							{
+								if(resources.get(i).getType().equals("Bus"))
+								{
+									qtd = resources.get(i).getQtd();
+									
+									System.out.println("The team have a Total of: " + qtd + " bus");
+								}
+							}
+							
+							System.out.println("");
+							System.out.println("The Stadium");
+							for(int i = 0; i < resources.size(); i ++)
+							{
+								if(resources.get(i).getType().equals("Stadium"))
+								{
+									status = resources.get(i).getStatus();
+									
+									System.out.println("The status of Stadium is: " + status);
+								}
+							}
+							
+							System.out.println("");
+							System.out.println("The Training Camp");
+							for(int i = 0; i < resources.size(); i ++)
+							{
+								if(resources.get(i).getType().equals("Training Camp"))
+								{
+									status = resources.get(i).getStatus();
+									
+									System.out.println("The status of Training Camp is: " + status);
+								}
+							}
+						}
+						
+						else if(choice.equals("3"))
+						{
+							int count_t1 = 0, count_t2 = 0, count_general = 0;
+							
+							System.out.println("Here is the Partnes:");
+							for(int i = 0; i < partners.size(); i ++)
+							{
+								name = partners.get(i).getName();
+								email = partners.get(i).getEmail();
+								addres = partners.get(i).getAddres();
+								status = partners.get(i).getStatus_of_Pay();
+								type_of_partner = partners.get(i).getType_of_Partner();
+								cpf = partners.get(i).getCpf();
+								telephone = partners.get(i).getTelephone();
+								
+								System.out.println("Name: " + name);
+								System.out.println("Addres: " + addres);
+								System.out.println("Email: " + email);
+								System.out.println("CPF: " + cpf);
+								System.out.println("Telephone: " + telephone);
+								System.out.println("Type of Partner: " + type_of_partner);
+								System.out.println("Status: " + status);
+								
+								count_general = i;
+								
+								if(status.equals("Available"))
+								{
+									count_t1 ++;
+								}
+								else
+								{
+									count_t2 ++;
+								}
+							}
+							
+							System.out.printf("So we have a Total of %d Partnes, %d are Available and %d are Not Available" + count_general + count_t1 + count_t2);
+						}
+						
+						else
+						{
+							System.out.println("Invalid Option!");
 						}
 					}
 				}

@@ -14,4 +14,5 @@ public class Physical_Trainer extends Worker
 		physical_trainer.setSalary(salary);
 		physical_trainers.add(physical_trainer);
 	}
+
 }
