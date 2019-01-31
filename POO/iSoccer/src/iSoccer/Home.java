@@ -200,7 +200,7 @@ public class Home
 						
 						else if(choice.equals("9"))
 						{
-							System.out.println("Please enter the name, the addres, email, status, telephone, cpf and value of contribution of the Partner you want to add");
+							System.out.println("Please enter the name, the addres, email, status(Adimplente or Inadimplente), telephone, cpf and value of contribution of the Partner you want to add");
 							name = input.nextLine();
 							addres = input.nextLine();
 							email = input.nextLine();
@@ -253,7 +253,7 @@ public class Home
 							if(choice.equals("1"))
 							{
 								status = Partner.Take_Status(partners, name, " ", cpf, false);
-								System.out.println(" The current state of this Partner is " + status + ". Do you wanna change it(1 to Yes or 2 to No)?");
+								System.out.println("The current state of this Partner is " + status + ". Do you wanna change it(1 to Yes or 2 to No)?");
 								choice = input.nextLine();
 								
 								if(choice.equals("1"))
@@ -673,7 +673,7 @@ public class Home
 								
 								count_general = i;
 								
-								if(status.equals("Available"))
+								if(status.equals("Adimplente"))
 								{
 									count_t1 ++;
 								}
@@ -683,7 +683,7 @@ public class Home
 								}
 							}
 							
-							System.out.printf("So we have a Total of %d Partnes, %d are Available and %d are Not Available" + count_general + count_t1 + count_t2);
+							System.out.printf("So we have a Total of %d Partnes, %d are Adimplente and %d are Inadimplente" + count_general + count_t1 + count_t2);
 						}
 						
 						else
