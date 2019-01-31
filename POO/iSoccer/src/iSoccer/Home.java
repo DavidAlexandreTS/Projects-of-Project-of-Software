@@ -22,11 +22,18 @@ public class Home
 		ArrayList<President> presidents = new ArrayList<President>();
 		ArrayList<Technician> technicians = new ArrayList<Technician>();
 		ArrayList<Partner> partners = new ArrayList<Partner>();
+		ArrayList<Resource> resources = new ArrayList<Resource>();
 		
 		int cpf;
 		int crm;
 		int enrollment_number;
 		int telephone;
+		int check;
+		int qtd;
+		int qtd_bathroom;
+		int qtd_snack_bar;
+		int capacity_of_spectators;
+		int qtd_of_rooms;
 		
 		double salary;
 		double value_of_contribution;
@@ -38,7 +45,6 @@ public class Home
 		String status;
 		String type_of_player;
 		String addres;
-		String status_of_pay;
 		String type_of_partner = null;
 		
 		
@@ -64,7 +70,8 @@ public class Home
 				while(true)
 				{
 					System.out.println("Welcome Ms. Admin");
-					System.out.println( "What do you want to do?\n" + "1. To add employees\n");
+					System.out.println( "What do you want to do?\n" + "1. To add employees or an Partner\n" + "2. To change a partner payment status or update the value of the contribution\n" +
+					"3. To administer\n");
 					choice = input.nextLine();
 					
 					if(choice.equals("1"))
@@ -86,8 +93,9 @@ public class Home
 							input.nextLine();
 							
 							President.Add_President(presidents, cpf, name, email, telephone, salary);
-							System.out.println("New President add with sucess!");
+							System.out.println("New President add with Success!");
 						}
+						
 						else if(choice.equals("2"))
 						{
 							System.out.println("Please enter the name, email, telephone, cpf, crm and salary of the Medical you want to add");
@@ -100,8 +108,9 @@ public class Home
 							input.nextLine();
 							
 							Medical.Add_Medical(medicals, cpf, crm, name, email, telephone, salary);
-							System.out.println("New Medical add with sucess!");
+							System.out.println("New Medical add with Success!");
 						}
+						
 						else if(choice.equals("3"))
 						{
 							System.out.println("Please enter the name, email, telephone, cpf and salary of the Technician you want to add");
@@ -113,8 +122,9 @@ public class Home
 							input.nextLine();
 							
 							Technician.Add_Technician(technicians, cpf, name, email, telephone, salary);
-							System.out.println("New Technician add with sucess!");
+							System.out.println("New Technician add with Success!");
 						}
+						
 						else if(choice.equals("4"))
 						{
 							System.out.println("Please enter the name, email, telephone, cpf and salary of the Physical Trainer you want to add");
@@ -126,8 +136,9 @@ public class Home
 							input.nextLine();
 							
 							Physical_Trainer.Add_Physical_Trainer(physical_trainers, cpf, name, email, telephone, salary);
-							System.out.println("New Physical Trainer add with sucess!");
+							System.out.println("New Physical Trainer add with Success!");
 						}
+						
 						else if(choice.equals("5"))
 						{
 							System.out.println("Please enter the name, email, telephone, cpf, enrollment number and salary of the Driver you want to add");
@@ -140,8 +151,9 @@ public class Home
 							input.nextLine();
 							
 							Driver.Add_Driver(drivers, cpf, enrollment_number, name, email, telephone, salary);
-							System.out.println("New Driver add with sucess!");
+							System.out.println("New Driver add with Success!");
 						}
+						
 						else if(choice.equals("6"))
 						{
 							System.out.println("Please enter the name, email, telephone, cpf and salary of the Cook you want to add");
@@ -153,8 +165,9 @@ public class Home
 							input.nextLine();
 							
 							Cook.Add_Cook(cooks, cpf, name, email, telephone, salary);
-							System.out.println("New Cook add with sucess!");
+							System.out.println("New Cook add with Success!");
 						}
+						
 						else if(choice.equals("7"))
 						{
 							System.out.println("Please enter the name, email, telephone, cpf and salary of the Lawyer you want to add");
@@ -166,8 +179,9 @@ public class Home
 							input.nextLine();
 							
 							Lawyer.Add_Lawyer(lawyers, cpf, name, email, telephone, salary);
-							System.out.println("New Lawyer add with sucess!");
+							System.out.println("New Lawyer add with Success!");
 						}
+						
 						else if(choice.equals("8"))
 						{
 							System.out.println("Please enter the name, type of player, the status, email, telephone, cpf and salary of the Player you want to add");
@@ -181,14 +195,16 @@ public class Home
 							input.nextLine();
 							
 							Player.Add_Player(players, cpf, name, email, type_of_player, status, telephone, salary);
-							System.out.println("New Player add with sucess!");
+							System.out.println("New Player add with Success!");
 						}
+						
 						else if(choice.equals("9"))
 						{
-							System.out.println("Please enter the name, the addres, email, telephone, cpf and value of contribution of the Partner you want to add");
+							System.out.println("Please enter the name, the addres, email, status, telephone, cpf and value of contribution of the Partner you want to add");
 							name = input.nextLine();
 							addres = input.nextLine();
 							email = input.nextLine();
+							status = input.nextLine();
 							telephone = input.nextInt();
 							cpf = input.nextInt();
 							value_of_contribution = input.nextDouble();
@@ -198,30 +214,224 @@ public class Home
 							{
 								type_of_partner = "Junior";
 							}
+							
 							else if(value_of_contribution >= 5000 && value_of_contribution < 10000)
 							{
 								type_of_partner = "Senior";
 							}
+							
 							else if(value_of_contribution >= 10000)
 							{
 								type_of_partner = "Elite";
 							}
 							
-							Partner.Add_Partner(partners, cpf, name, addres, email, telephone, value_of_contribution, "Adimplente", type_of_partner);
-							System.out.println("New Player add with sucess!");
+							Partner.Add_Partner(partners, cpf, name, addres, email, telephone, value_of_contribution, status, type_of_partner);
+							System.out.println("New Partner add with Success!");
 						}
+						
 						else
 						{
 							System.out.println("Invalid Option!");
 						}
+						
 					}
 					
 					else if(choice.equals("2"))
 					{
+						System.out.println("Ok, now digit the name and the CPF of Partner");
+						name = input.nextLine();
+						cpf = input.nextInt();
+						input.nextLine();
+						
+						check = Partner.Search_Partner(partners, name, cpf, false);
+						
+						if(check == 1)
+						{
+							System.out.println("Do you wanna change the status[1] or update the value of the contribution[2]?");
+							choice = input.nextLine();
+							
+							if(choice.equals("1"))
+							{
+								status = Partner.Take_Status(partners, name, " ", cpf, false);
+								System.out.println(" The current state of this Partner is " + status + ". Do you wanna change it(1 to Yes or 2 to No)?");
+								choice = input.nextLine();
+								
+								if(choice.equals("1"))
+								{
+									System.out.println("Ok, please digit the Now Status");
+									status = input.nextLine();
+									Partner.Alter_Status(partners, status, cpf);
+									System.out.println("Status changed with Success!");
+								}
+								
+								else
+								{
+									System.out.println("See ya!");
+								}
+							}
+							
+							else if(choice.equals("2"))
+							{
+								System.out.println("Please digit the new value");
+								value_of_contribution = input.nextDouble();
+								input.nextLine();
+								
+								Partner.Alter_Contribution(partners, value_of_contribution, cpf);
+								System.out.println("New value changed with Success!");
+							}
+							
+						}
+						
+						else
+						{
+							System.out.println( "This Partner does not exist.");
+						}
 						
 					}
+					
+					else if(choice.equals("3"))
+					{
+						System.out.println("For Bus information type 1, to information about Stadium type 2 or type 3 to information about Training Camps");
+						choice = input.nextLine();
+						
+						if(choice.equals("1"))
+						{
+							System.out.println("To add Bus type 1, if you want to know the amount of Bus type 2 of to see the availability of this Resource type 3");
+							choice = input.nextLine();
+							
+							if(choice.equals("1"))
+							{
+								System.out.println("How many Bus do you want to add?");
+								qtd = input.nextInt();
+								input.nextLine();
+								
+								if(qtd > 0)
+								{
+									Bus.Add_Bus(resources, qtd, "Bus", "Available");
+									System.out.println("Bus add with Success!");
+								}
+								
+								else
+								{
+									Bus.Add_Bus(resources, qtd, "Bus", "Not Available");
+									System.out.println("Bus Not Added!");
+								}
+								
+							}
+							
+							else if(choice.equals("2"))
+							{
+								qtd = Resource.Check_Quantity(resources, 0, "Bus", false);
+								System.out.println("The Quantity of Bus is " + qtd);
+							}
+							
+							else if(choice.equals("3"))
+							{
+								status = Resource.Check_Status(resources, "Bus", " ", false);
+								System.out.println("The Status of Bus is " + status);
+							}
+							
+							else
+							{
+								System.out.println("Invalid Option.");
+							}
+						}
+						
+						else if(choice.equals("2"))
+						{
+							System.out.println("To add a Stadium type 1, to view additionals informations about a Stadium type 2 and to see the availability of this Resource type 3");
+							choice = input.nextLine();
+							
+							if(choice.equals("1"))
+							{
+								System.out.println("Ok, now please Gimme the Name of Stadium, the Quantity of Bathrooms, the Quantity of Snack Bars and the Capacity of Spectators");
+								name = input.nextLine();
+								qtd_bathroom = input.nextInt();
+								qtd_snack_bar = input.nextInt();
+								capacity_of_spectators = input.nextInt();
+								input.nextLine();
+								
+								Stadium.Add_Stadium(resources, 1, qtd_bathroom, qtd_snack_bar, capacity_of_spectators, name, "Stadium", "Available");
+								System.out.println("New Stadium add with Success!");
+							}
+							
+							else if(choice.equals("2"))
+							{
+								System.out.println("Gimme the name of Stadium please");
+								name = input.nextLine();
+									
+								capacity_of_spectators = Stadium.Check_Quantity_of_Capacity_of_Spectators(resources, 0, name, "Stadium", false);
+								qtd_bathroom = Stadium.Check_Quantity_of_Bathroom(resources, 0, name, "Stadium", false);
+								qtd_snack_bar = Stadium.Check_Quantity_of_Snack_Bar(resources, 0, name, "Stadium", false);
+									
+								System.out.println("The Max Capacity of Spectators is " + capacity_of_spectators);
+								System.out.println("The Quantity of Bathrooms is " + qtd_bathroom);
+								System.out.println("The Quantity of Snack Bars is " + qtd_snack_bar);
+								
+							}
+							
+							else if(choice.equals("3"))
+							{
+								System.out.println("Gimme the name of Stadium");
+								name = input.nextLine();
+								
+								status = Training_Camp.Check_Status_T(resources, name, "Stadium", " ", false);
+								System.out.println("The Status of Stadium is " + status);
+							}
+							
+							else
+							{
+								System.out.println("Invalid Option.");
+							}
+						}
+						
+						else if(choice.equals("3"))
+						{
+							System.out.println("To add a Training Camp type 1, to see the number of bedrooms type 2 and to see the availability of this Resource type 3");
+							choice = input.nextLine();
+							
+							if(choice.equals("1"))
+							{
+								System.out.println("Ok, please Gimme the name of Training Camp and the Quantity of Rooms");
+								name = input.nextLine();
+								qtd = input.nextInt();
+								input.nextLine();
+								
+								Training_Camp.Add_Training_Camp(resources, qtd, name, "Training Camp", "Avaliable");
+								System.out.println("New Training Camp add with Success!");
+							}
+							
+							else if(choice.equals("2"))
+							{
+								System.out.println("Gimme the name of the Training Camp please");
+								name = input.nextLine();
+								qtd = input.nextInt();
+								input.nextLine();
+								
+								qtd_of_rooms = Training_Camp.Number_of_Rooms(resources, qtd, name, "Training Camp", false);
+								System.out.println("The Quantity of Rooms is " + qtd_of_rooms);
+							}
+							
+							else if(choice.equals("3"))
+							{
+								System.out.println("Gimme the name of the Training Camp");
+								name = input.nextLine();
+								
+								status = Training_Camp.Check_Status_T(resources, name, "Training Camp", " ", false);
+								System.out.println("The Status of the Training Camp is " + status);
+							}
+							
+							else
+							{
+								System.out.println("Invalid Option.");
+							}
+							
+						}
+					}
 				}
-			}else
+			}
+			
+			else
 			{
 				System.out.println("Invalid Login or Password");
 			}

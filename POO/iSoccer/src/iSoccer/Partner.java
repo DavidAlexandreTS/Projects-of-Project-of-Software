@@ -109,4 +109,72 @@ public class Partner
 		partners.add(partner);
 	}
 	
+	public static int Search_Partner(ArrayList<Partner> partners, String name, int cpf, boolean found)
+	{	
+		for(int i = 0;i < partners.size(); i ++)
+		{
+			if(partners.get(i).getName().equals(name) && partners.get(i).getCpf() == cpf)
+			{
+				found = true;
+				break;
+			}
+		}
+		
+		if(found)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	public static String Take_Status(ArrayList<Partner> partners, String name, String status, int cpf, boolean found)
+	{
+		for(int i = 0;i < partners.size(); i ++)
+		{
+			if(partners.get(i).getName().equals(name) && partners.get(i).getCpf() == cpf)
+			{
+				status = partners.get(i).getStatus_of_Pay();
+				found = true;
+				break;
+			}
+		}
+		
+		if(found)
+		{
+			return status;
+		}
+		else
+		{
+			status = " ";
+			return status;
+		}
+	}
+	
+	public static void Alter_Status(ArrayList<Partner> partners, String status, int cpf)
+	{
+		for(int i = 0;i < partners.size(); i ++)
+		{
+			if(partners.get(i).getCpf() == cpf)
+			{
+				partners.get(i).setStatus_of_Pay(status);
+				break;
+			}
+		}
+	}
+	
+	public static void Alter_Contribution(ArrayList<Partner> partners, double value_of_contribution, int cpf)
+	{
+		for(int i = 0;i < partners.size(); i ++)
+		{
+			if(partners.get(i).getCpf() == cpf)
+			{
+				partners.get(i).setValue_of_contribution(value_of_contribution);
+				break;
+			}
+		}
+	}
+	
 }
