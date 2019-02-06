@@ -1,5 +1,3 @@
-Tentando ver como fica tudo isso no git depois do meu commit.
+Documentação do Projeto: iSoccer
 
-David Silva Alexandre
-
-Exportando documento...
+* Funcionalidades: O sistema possui todos os requisitos funcionais solicitados na descrição do Projeto. Seu objetivo principal é fornecer uma excelente administração dos recursos de um time de futebol. Ao iniciar o Sistema, deve-se fornecer um login e senha de administrador do mesmo, para que seja possível executar as demais funcionalidades
