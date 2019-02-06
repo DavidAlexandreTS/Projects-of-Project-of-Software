@@ -1,5 +1,6 @@
 Documentação do Projeto: iSoccer
 
-* Funcionalidades: O sistema possui todos os requisitos funcionais solicitados na descrição do Projeto. Seu objetivo principal é fornecer uma excelente administração dos recursos de um time de futebol.
+* Funcionalidades: O sistema possui todos os requisitos funcionais solicitados na descrição do Projeto.
+Seu objetivo principal é fornecer uma excelente administração dos recursos de um time de futebol.
 Ao iniciar o Sistema, deve-se fornecer um login e senha de administrador do mesmo, para que seja possível executar as demais funcionalidades. O programa possui diversas funcionalidades interessantes, de adição
 de recursos físicos(ônibus, estádios e centros de treinamento) a adição de profissionais que compõe o time, tais como médicos, jogadores, técnicos, advogados e etc.
