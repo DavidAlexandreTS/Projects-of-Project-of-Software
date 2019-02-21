@@ -1,5 +1,7 @@
 package Ciweb;
 
+import java.util.ArrayList;
+
 public class Publication
 {
 	private int number_of_authors;
@@ -71,4 +73,42 @@ public class Publication
 		this.authors = authors;
 	}
 	
+	public static void Add_Publication(ArrayList<Publication> publications, String [] authors, String title, String research_project_associate, String name_of_conference, int number_of_authors, int year_of_publication)
+	{
+		Publication publication = new Publication();
+		publication.setAuthors(authors);
+		publication.setTitle(title);
+		publication.setResearch_project_associate(research_project_associate);
+		publication.setName_of_conference(name_of_conference);
+		publication.setNumber_of_authors(number_of_authors);
+		publication.setYear_of_publication(year_of_publication);
+		publications.add(publication);
+		
+		System.out.println("New Publication add with success!");
+	}
+	
+	public static void Add_Pub_on(ArrayList<Publication> publics, String title, int year)
+	{
+		Publication publication = new Publication();
+		publication.setTitle(title);
+		publication.setYear_of_publication(year);
+		publics.add(publication);
+	}
+	
+	public static void bubblesort(int[] vet)
+	{
+		for(int i = 1; i < vet.length; i ++)
+		{
+		    for(int j = 0; j < i; j ++)
+		    {
+		        if(vet[i] > vet[j])
+		        {
+		            int temp = vet[i];
+		            vet[i] = vet[j];
+		            vet[j] = temp;
+		        }
+		    }
+		}
+	}
+
 }

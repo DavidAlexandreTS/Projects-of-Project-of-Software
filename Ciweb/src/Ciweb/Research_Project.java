@@ -12,6 +12,7 @@ public class Research_Project
 	private int month_of_end;
 	private int year_of_end;
 	private int number_of_participants;
+	private int number_of_publications;
 	
 	private double value;
 	
@@ -94,6 +95,16 @@ public class Research_Project
 		this.number_of_participants = number_of_participants;
 	}
 
+	public int getNumber_of_publications()
+	{
+		return number_of_publications;
+	}
+
+	public void setNumber_of_publications(int number_of_publications)
+	{
+		this.number_of_publications = number_of_publications;
+	}
+
 	public double getValue()
 	{
 		return value;
@@ -174,7 +185,7 @@ public class Research_Project
 		this.member = member;
 	}
 
-	public static void Add_Research_Project(ArrayList<Research_Project> projects, int day_of_begin, int month_of_begin, int year_of_begin, int day_of_end, int month_of_end, int year_of_end, double value, String title, String agency, String objective, String description, String status, String member)
+	public static void Add_Research_Project(ArrayList<Research_Project> projects, int day_of_begin, int month_of_begin, int year_of_begin, int day_of_end, int month_of_end, int year_of_end, int number_of_publication, double value, String title, String agency, String objective, String description, String status, String member)
 	{
 		Research_Project project = new Research_Project();
 		project.setDay_of_begin(day_of_begin);
@@ -183,6 +194,7 @@ public class Research_Project
 		project.setDay_of_end(day_of_end);
 		project.setMonth_of_end(month_of_end);
 		project.setYear_of_end(year_of_end);
+		project.setNumber_of_publications(number_of_publication);
 		project.setValue(value);
 		project.setTitle(title);
 		project.setAgency(agency);
@@ -193,9 +205,21 @@ public class Research_Project
 		projects.add(project);
 	}
 	
+	public static void Add_Collaborator_on_Project(ArrayList<Collaborator> participants, int number_of_projects, int number_of_publications, String name, String email, String type, String name_of_project)
+	{
+		Collaborator participant = new Collaborator();
+		participant.setNumber_of_projects(number_of_projects);
+		participant.setNumber_of_publications(number_of_publications);
+		participant.setName(name);
+		participant.setEmail(email);
+		participant.setType(type);
+		participant.setName_of_project(name_of_project);
+		participants.add(participant);
+	}
+	
 	public static int Search_Project(ArrayList<Research_Project> projects, String title, boolean found)
 	{
-		for(int i =0; i < projects.size(); i ++)
+		for(int i = 0; i < projects.size(); i ++)
 		{
 			if(projects.get(i).getTitle().equals(title))
 			{
@@ -214,4 +238,82 @@ public class Research_Project
 			return 0;
 		}
 	}
+	
+	public static int Check_Quantity_of_Publications(ArrayList<Research_Project> projects, String title, int number_of_publications, boolean found)
+	{
+		for(int i =0; i < projects.size(); i ++)
+		{
+			if(projects.get(i).getTitle().equals(title))
+			{
+				number_of_publications = projects.get(i).getNumber_of_publications();
+				found = true;
+				break;
+				
+			}
+		}
+		
+		if(found)
+		{
+			return number_of_publications;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	public static String Check_Status(ArrayList<Research_Project> projects, String title, String status, boolean found)
+	{
+		for(int i =0; i < projects.size(); i ++)
+		{
+			if(projects.get(i).getTitle().equals(title))
+			{
+				found = true;
+				status = projects.get(i).getStatus();
+				break;
+			}
+		}
+		
+		if(found)
+		{
+			return status;
+		}
+		else
+		{
+			return status;
+		}
+	}
+	
+	public static void Show_Informations_Project(ArrayList<Research_Project> projects, int day_of_begin, int month_of_begin, int year_of_begin, int day_of_end, int month_of_end, int year_of_end, int number_of_publication, double value, String title, String agency, String objective, String description, String status, String member)
+	{
+		for(int i = 0; i < projects.size(); i ++)
+		{
+			if(projects.get(i).getTitle().equals(title))
+			{
+				day_of_begin = projects.get(i).getDay_of_begin();
+				month_of_begin = projects.get(i).getMonth_of_begin();
+				year_of_begin = projects.get(i).getYear_of_begin();
+				day_of_end = projects.get(i).getDay_of_end();
+				month_of_end = projects.get(i).getMonth_of_end();
+				year_of_end = projects.get(i).getYear_of_end();
+				number_of_publication = projects.get(i).getNumber_of_publications();
+				value = projects.get(i).getValue();
+				agency = projects.get(i).getAgency();
+				objective = projects.get(i).getObjective();
+				description = projects.get(i).getDescription();
+				status = projects.get(i).getStatus();
+				break;
+			}
+		}
+		
+		System.out.println("Here is the information about the Project " + title + ": ");
+		System.out.printf("The Project started in: %02d/%02d/%d\n", day_of_begin, month_of_begin, year_of_begin);
+		System.out.printf("Will end in: %02d/%02d/%d\n", day_of_end, month_of_end, year_of_end);
+		System.out.println("The project have " + number_of_publication + " publications");
+		System.out.println("The funding agency of the project is " + agency + " and the amount paid by the agency was " + value + " R$");
+		System.out.println("The objective of this project is " + objective);
+		System.out.println("Here's a little description about the Project: " + description);
+		System.out.println("Currently the status of this project is " + status);
+	}
+	
 }
